@@ -1,5 +1,5 @@
 ---
-title: "Shiori by Example: Helpful Bootstrap Components"
+title: "Deutsches Heer verfügt über maximal 80 Prozent der nötigen Ausrüstung"
 ---
 
 With Shiori, you can take advantage of all the available components in Bootstrap. Here are some useful components for blogging.
