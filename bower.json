@@ -1,0 +1,16 @@
+{
+  "name": "newsstream-audio-alignment",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dpa-newslab/newsstream-audio-alignment",
+  "authors": [
+    "Martin Virtel <martin.virtel@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
