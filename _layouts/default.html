@@ -56,7 +56,11 @@
             {{ content }}
           </div>
           <div class="col-sm-4">
-            {% include sidebar.html %}
+            {% if page.sidebar %}
+              {% include {{ page.sidebar }} %}
+            {% else %}
+              {% include sidebar.html %}
+            {% endif %}
           </div>
         {% endif %}
       </div>
