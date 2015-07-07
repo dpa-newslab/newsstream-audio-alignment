@@ -21,7 +21,9 @@ $(document).ready(function() {
       $(".player-controls").fadeOut;
       window.cue.start=parseFloat(w[0].match(/[0-9\.]+/)[0]);
       window.cue.end=parseFloat(w[w.length-1].match(/[0-9\.]+/)[0]);
+      $("#cuetime").html(window.cue.start+" - "+window.cue.end)
       $(".player-controls").css({top: (event.pageY-150)+"px"}).fadeIn();
+
       $p.currentTime=window.cue.start;
       $p.play();
     } else {
