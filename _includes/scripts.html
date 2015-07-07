@@ -12,32 +12,34 @@ $(document).ready(function() {
  var $p=$("#player")[0];
  $(".player-controls").hide();
 
- $( '.col-sm-8' ).on( 'mouseup', function(){
-  window.cue={start: 0, end: 0 };
-  var h=rangy.getSelection().toHtml();
-  var w=h.match(/(data-cue="([0-9\.]+))"/g);
-  if (w) {
-  	if (w.length>0) {
-      $(".player-controls").fadeOut;
-      window.cue.start=parseFloat(w[0].match(/[0-9\.]+/)[0]);
-      window.cue.end=parseFloat(w[w.length-1].match(/[0-9\.]+/)[0]);
-      $("#cuetime").html(window.cue.start+" - "+window.cue.end)
-      $(".player-controls").css({top: (event.pageY-150)+"px"}).fadeIn();
+ if ($p) {
+     $( '.col-sm-8' ).on( 'mouseup', function(){
+      window.cue={start: 0, end: 0, timeout : 0 };
+      var h=rangy.getSelection().toHtml();
+      var w=h.match(/(data-cue="([0-9\.]+))"/g);
+      if (w) {
+      	if (w.length>0) {
+          clearTimeout(window.cue.timeout);
+          $(".player-controls").fadeOut;
+          window.cue.start=parseFloat(w[0].match(/[0-9\.]+/)[0]);
+          window.cue.end=parseFloat(w[w.length-1].match(/[0-9\.]+/)[0]);
+          $("#cuetime").html(window.cue.start+" - "+window.cue.end)
+          $(".player-controls").css({top: (event.pageY-150)+"px"}).fadeIn();
 
-      $p.currentTime=window.cue.start;
-      $p.play();
-    } else {
-      window.cue.end=0;
+          $p.currentTime=window.cue.start;
+          $p.play();
+        } else {
+          window.cue.end=0;
+        }
+
+      	}
+      });
+     $($p).on("timeupdate",function() {
+           if ($p.currentTime>=window.cue.end) {
+              $p.pause();
+              window.cue.timeout=setTimeout(15000, function() { $(".player-controls").fadeOut() });
+           }
+      });
     }
-
-  	}
-  });
- $($p).on("timeupdate",function() {
-       if ($p.currentTime>=window.cue.end) {
-          $p.pause();
-          $(".player-controls").fadeOut();
-       }
-  });
-
 });
 </script>
