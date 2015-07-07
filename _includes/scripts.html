@@ -5,6 +5,8 @@
 
 <script src=" {{ "/bower_components/rangy/rangy-core.min.js" | prepend:site.baseurl }}" type="text/javascript"></script>
 <script type="text/javascript" src="{{ "/bower_components/qtip2/jquery.qtip.js" |prepend: site.baseurl }}"></script>
+<script type="text/javascript" src="{{ "/bower_components/ua_parser/src/js/userAgent.js" |prepend: site.baseurl }}"></script>
+
 
 <script>
 
@@ -41,5 +43,19 @@ $(document).ready(function() {
            }
       });
     }
+});
+
+</script>
+
+
+<div id="browser-warning" style="display: none;border: 1px dotted #990000; margin: 5px; text-align: center; padding: 5%; background: RGBA(255,255,255,.8); position: fixed; top: 10%; left: 10%; right: 10%; bottom: 10%">
+  <h2>Diese Demo funktioniert im Moment leider nur in Google Chrome.</h2>
+  <button onClick="$('#browser-warning').fadeOut()" style="position: absolute; bottom: 5%; right: 5%;">Verstanden.</button>
+</div>
+<script>
+$(document).ready(function() {
+  if (!window.util.userAgent().browser.chrome) {
+   $("#browser-warning").fadeIn();
+  };
 });
 </script>
