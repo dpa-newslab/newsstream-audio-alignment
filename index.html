@@ -1,4 +1,5 @@
 ---
+sidebar: sidebar/empty.html
 ---
 
 {% for post in site.posts limit:site.data.theme.num_home_posts %}
@@ -10,10 +11,10 @@
 </div>
 <div class="post-excerpt-home">
   {{ post.excerpt }}
-  <p class="text-right"><a href="{{ post.url | prepend:site.baseurl }}">Continue Reading &rarr;</a></p>
+  <p class="text-right"><a href="{{ post.url | prepend:site.baseurl }}">weiter &rarr;</a></p>
 </div>
 {% endfor %}
 <hr>
 <div class="home-read-more">
-  <a href="{{ "/archive" | prepend:site.baseurl }}" class="btn btn-primary btn-block btn-lg">View All {{ site.posts | size }} Articles →</a>
+  <a href="{{ "/pages" | prepend:site.baseurl }}" class="btn btn-primary btn-block btn-lg">View complete sitemap ({{ site.posts | size }} pages)</a>
 </div>

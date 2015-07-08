@@ -13,6 +13,8 @@ exclude:
   - "CNAME"
   - "Gemfile"
   - "Gemfile.lock"
+  - "bin"
+  - "_archive"
 permalink: :title
 defaults:
   -
