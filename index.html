@@ -1,12 +1,26 @@
 ---
 sidebar: sidebar/empty.html
 ---
+<div class="post-header-home">
+    <h1 class="post-title-home">"I've heard it myself."</h1>
+
+    <p>News media can't breathe without the trust of their audience. That trust mostly comes from hard work in researching stories, but sometimes it also comes from simply documenting the truth. Digital media provide us with unique ways of doing that - such as embedding original recordings below a written quote. Which is what we've done in this small demo website.
+
+    <p>
+
+    <p>The first story shows you how that can be done. The second applies the principle to a whole interview. Enjoy!
+    </p>
+
+</div>
+
+
+
 
 {% for post in site.posts limit:site.data.theme.num_home_posts %}
 <div class="post-header-home">
-  <h1 class="post-title-home">
+  <h2 class="post-title-home">
     <a href="{{ post.url | prepend:site.baseurl }}">{{ post.title }}</a>
-  </h1>
+  </h2>
   {% include post-header-home.html %}
 </div>
 <div class="post-excerpt-home">
@@ -16,5 +30,4 @@ sidebar: sidebar/empty.html
 {% endfor %}
 <hr>
 <div class="home-read-more">
-  <a href="{{ "/pages" | prepend:site.baseurl }}" class="btn btn-primary btn-block btn-lg">View complete sitemap ({{ site.posts | size }} pages)</a>
 </div>
